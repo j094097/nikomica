@@ -30,6 +30,8 @@ gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) support
 
 gem "twitter-bootstrap-rails"
 
+gem 'rails_12factor', group: :production
+
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
