@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
 # Use sqlite3 as the database for Active Record
@@ -24,11 +23,13 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
-gem "therubyracer"
+gem 'therubyracer'
 
-gem "less-rails" #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
+gem 'less-rails' #Sprockets (what Rails 3.1 uses for its asset pipeline) supports LESS
 
-gem "twitter-bootstrap-rails"
+gem 'twitter-bootstrap-rails'
+
+gem 'capistrano'
 
 gem 'rails_12factor', group: :production
 
@@ -41,6 +42,8 @@ group :development do
   gem 'brakeman', :require => false
   gem 'rails_best_practices', :require => false
   gem 'spring'
+  gem 'capistrano-rails'
+  gem 'capistrano-passenger'
 end
 
 # Use ActiveModel has_secure_password
