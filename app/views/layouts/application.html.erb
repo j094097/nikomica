@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Nikomica</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Nikomica</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
-<%= render 'layouts/navbar' %>
+    <%= render 'layouts/navbar' %>
 
-<div class="container">
+    <div class="container">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
 
-  <%= yield %>
-</div>
+      <%= yield %>
+    </div>
 
-</body>
+  </body>
 </html>
