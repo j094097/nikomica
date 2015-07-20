@@ -3,10 +3,16 @@
     <div class="header item">
       Nikomica
     </div>
-    <a href="#" class="item">首頁</a>
+    <%= link_to('首頁', root_path, class: 'item') %>
     <div class="right menu">
       <div class="item">
-        <div class="ui primary button">Sign Up</div>
+        <% if current_user %>
+          <%= link_to('登出', destroy_user_session_path, method: :delete, class: 'ui primary button') %>
+          <%= link_to('修改密碼', edit_registration_path(:user), class: 'ui primary button') %>
+        <% else %>
+          <%= link_to('註冊', new_registration_path(:user), class: 'ui primary button') %>
+          <%= link_to('登入', new_session_path(:user), class: 'ui primary button') %>
+        <% end %>
       </div>
     </div>
   </div>
