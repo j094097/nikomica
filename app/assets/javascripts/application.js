@@ -11,7 +11,10 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require semantic-ui
+//= require ckeditor/init
 //= require turbolinks
+
 //= require_tree .

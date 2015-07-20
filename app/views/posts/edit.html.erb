@@ -1,10 +1,9 @@
 <div class="ui six wide column centered grid">
   <div class= "column">
-    <h1>Editing post</h1>
+    <h1>編輯文章</h1>
 
     <%= render 'form' %>
 
-    <%= link_to 'Show', @post %> |
-    <%= link_to 'Back', posts_path %>
+    <%= link_to '返回', user_posts_path(current_user) %>
   </div>
 </div>

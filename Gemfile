@@ -26,6 +26,8 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
+gem 'jquery-turbolinks'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
@@ -39,7 +41,7 @@ gem 'capistrano'
 
 gem 'devise'
 
-gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'rails_12factor', group: :production
 

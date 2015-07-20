@@ -25,7 +25,7 @@
             
             <% if params[:user_id].present? %>
               <td><%= link_to 'Show', user_post_path(current_user, post) %></td>
-              <td><%= link_to 'Edit', edit_user_post_path(current_user, post) %></td>
+              <td data-no-turbolink><%= link_to 'Edit', edit_user_post_path(current_user, post) %></td>
               <td><%= link_to 'Destroy', user_post_path(current_user, post), method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% else %>
               <td><%= link_to 'Show', post %></td>
