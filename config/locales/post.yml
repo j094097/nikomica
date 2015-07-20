@@ -1,17 +1,16 @@
 zh-TW:
   activerecord:
     model:
-      user: "使用者"
+      post: "文章"
+      posts: "文章"
     attributes:
-      user:
-        email: "電子郵件"
-        password: "密碼"
-        password_confirmation: "密碼確認"
-        current_password: "現在的密碼"
-        remember_me: "記住我"
+      post:
+        post_date: "發文時間"
+        content: "內容"
+        published: "發佈"
     errors:
       models:
-        user:
+        post:
           attributes:
             email:
               blank: "不能是空白"

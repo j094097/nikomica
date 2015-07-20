@@ -39,6 +39,8 @@ gem 'capistrano'
 
 gem 'devise'
 
+gem 'bootstrap-wysihtml5-rails', github: 'nerian/bootstrap-wysihtml5-rails'
+
 gem 'rails_12factor', group: :production
 
 # bundle exec rake doc:rails generates the API under doc/api.

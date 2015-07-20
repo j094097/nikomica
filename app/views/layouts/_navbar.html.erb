@@ -4,9 +4,11 @@
       Nikomica
     </div>
     <%= link_to('首頁', root_path, class: 'item') %>
+    <%= link_to('消息發布', posts_path, class: 'item') %>
     <div class="right menu">
       <div class="item">
         <% if current_user %>
+          <%= link_to('個人文章', user_posts_path(current_user), class: 'ui primary button') %>
           <%= link_to('登出', destroy_user_session_path, method: :delete, class: 'ui primary button') %>
           <%= link_to('修改密碼', edit_registration_path(:user), class: 'ui primary button') %>
         <% else %>
