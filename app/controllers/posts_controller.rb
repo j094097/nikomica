@@ -43,14 +43,14 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.find_by_hashed_id!(params[:id])
     end
 
     def set_self_post
-      @post = current_user.posts.find_by(id: params[:id])
+      @post = current_user.posts.find_by_hashed_id!(params[:id])
     end
 
     def post_params
-      params.require(:post).permit(:post_date, :content, :published)
+      params.require(:post).permit(:post_date, :title, :content, :published)
     end
 end

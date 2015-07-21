@@ -11,6 +11,11 @@
       </div>
 
       <div class="field">
+        <%= f.label :email %><br />
+        <%= f.text_field :username %>
+      </div>
+
+      <div class="field">
         <%= f.label :password %>
         <% if @validatable %>
           <em><%= I18n.t(:password_valid, length: @minimum_password_length)%></em>

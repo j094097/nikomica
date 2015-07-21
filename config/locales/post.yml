@@ -8,6 +8,7 @@ zh-TW:
         post_date: "發文時間"
         content: "內容"
         published: "發佈"
+        title: "標題"
     errors:
       models:
         post:

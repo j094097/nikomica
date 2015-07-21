@@ -11,72 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150720070456) do
+ActiveRecord::Schema.define(version: 20150721030132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "blogit_comments", force: true do |t|
-    t.string   "name",       null: false
-    t.string   "email",      null: false
-    t.string   "website"
-    t.text     "body",       null: false
-    t.integer  "post_id",    null: false
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "blogit_comments", ["post_id"], name: "index_blogit_comments_on_post_id", using: :btree
-
-  create_table "blogit_posts", force: true do |t|
-    t.string   "title",                            null: false
-    t.text     "body",                             null: false
-    t.string   "state",          default: "draft", null: false
-    t.integer  "comments_count", default: 0,       null: false
-    t.integer  "blogger_id"
-    t.string   "blogger_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.text     "description"
-  end
-
-  add_index "blogit_posts", ["blogger_type", "blogger_id"], name: "index_blogit_posts_on_blogger_type_and_blogger_id", using: :btree
-
-  create_table "monologue_posts", force: true do |t|
-    t.boolean  "published"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.string   "title"
-    t.text     "content"
-    t.string   "url"
-    t.datetime "published_at"
-  end
-
-  add_index "monologue_posts", ["url"], name: "index_monologue_posts_on_url", unique: true, using: :btree
-
-  create_table "monologue_taggings", force: true do |t|
-    t.integer "post_id"
-    t.integer "tag_id"
-  end
-
-  add_index "monologue_taggings", ["post_id"], name: "index_monologue_taggings_on_post_id", using: :btree
-  add_index "monologue_taggings", ["tag_id"], name: "index_monologue_taggings_on_tag_id", using: :btree
-
-  create_table "monologue_tags", force: true do |t|
-    t.string "name"
-  end
-
-  add_index "monologue_tags", ["name"], name: "index_monologue_tags_on_name", using: :btree
-
-  create_table "monologue_users", force: true do |t|
-    t.string   "name"
-    t.string   "email"
-    t.string   "password_digest"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "posts", force: true do |t|
     t.integer  "user_id"
@@ -85,30 +23,13 @@ ActiveRecord::Schema.define(version: 20150720070456) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hashed_id"
+    t.string   "title"
   end
 
+  add_index "posts", ["hashed_id"], name: "index_posts_on_hashed_id", using: :btree
   add_index "posts", ["published"], name: "index_posts_on_published", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
-
-  create_table "taggings", force: true do |t|
-    t.integer  "tag_id"
-    t.integer  "taggable_id"
-    t.string   "taggable_type"
-    t.integer  "tagger_id"
-    t.string   "tagger_type"
-    t.string   "context",       limit: 128
-    t.datetime "created_at"
-  end
-
-  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
-  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
-
-  create_table "tags", force: true do |t|
-    t.string  "name"
-    t.integer "taggings_count", default: 0
-  end
-
-  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -123,10 +44,12 @@ ActiveRecord::Schema.define(version: 20150720070456) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hashed_id"
     t.string   "username"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["hashed_id"], name: "index_users_on_hashed_id", using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end

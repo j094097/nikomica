@@ -9,6 +9,7 @@ zh-TW:
         password_confirmation: "密碼確認"
         current_password: "現在的密碼"
         remember_me: "記住我"
+        username: "暱稱"
     errors:
       models:
         user:

@@ -1,6 +1,4 @@
 zh-TW:
-  password_valid: "密碼最短必須%{length}個字元"
-zh-TW:
   date:
     abbr_day_names:
     - 日
@@ -218,3 +216,4 @@ zh-TW:
         updated: 您的密碼已被修改，而您現在已重新登入。
         updated_not_active: 您的密碼已被修改。
   please_enter_verify_code: "您的驗證碼為 %{verification_code}，請您於三十分鐘內輸入。"
+  password_valid: "密碼最短必須%{length}個字元"
