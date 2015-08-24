@@ -3,23 +3,24 @@
     <%= link_to "發布文章", new_user_post_path(current_user), class: "ui primary button" %>
   <% end %>
 </div>
-  <% @posts.each do |post| %>
-    <div class="fourteen wide column">
-      <div class="ui raised segment">
-        <% if params[:user_id].nil? %>
-          <a class="ui blue ribbon label">
-            <%= post.user.username %>
-          </a>
-        <% else %>
-          <%= link_to "編輯",
-                      edit_user_post_path(current_user, post),
-                      class: (post.published == 1 ? "ui blue ribbon label" : "ui red ribbon label") %>
-        <% end %>
-        <span class="ui huge header">
-          <%= post.title %>
-          <div class="ui sub right aligned header"><%= l post.post_date, format: :date %></div>
-        </span>
-        <%= post.content.html_safe %>
-      </div>
+<% @posts.each do |post| %>
+  <div class="fourteen wide column">
+    <div class="ui raised segment">
+      <% if params[:user_id].nil? %>
+        <a class="ui blue ribbon label">
+          <%= post.user.username %>
+        </a>
+      <% else %>
+        <%= link_to "編輯",
+                    edit_user_post_path(current_user, post),
+                    class: (post.published == 1 ? "ui blue ribbon label" : "ui red ribbon label") %>
+      <% end %>
+      <span class="ui huge header">
+        <%= link_to(post.title, post_path(post)) %>
+        <%#= post.title %>
+        <div class="ui sub right aligned header"><%= l post.post_date, format: :date %></div>
+      </span>
+      <%= post.content.html_safe %>
     </div>
-  <% end %>
+  </div>
+<% end %>

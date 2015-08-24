@@ -1,36 +1,19 @@
-<div class="ui six wide column centered grid">
-  <div class= "column">
-    <p id="notice"><%= notice %></p>
-
-    <p>
-      <strong>Id:</strong>
-      <%= @post.id %>
-    </p>
-
-    <p>
-      <strong>User:</strong>
-      <%= @post.user_id %>
-    </p>
-
-    <p>
-      <strong>Post date:</strong>
-      <%= @post.post_date %>
-    </p>
-
-    <p>
-      <strong>Content:</strong>
-      <%= @post.content %>
-    </p>
-
-    <p>
-      <strong>Published:</strong>
-      <%= @post.published %>
-    </p>
-
-    <% if params[:user_id].present? %>
-      <%= link_to 'Back', user_posts_path %>
-    <% else %>
-      <%= link_to 'Back', posts_path %>
-    <% end %> 
+<div class="fourteen wide column">
+    <div class="ui raised segment">
+      <% if params[:user_id].nil? %>
+        <a class="ui blue ribbon label">
+          <%= @post.user.username %>
+        </a>
+      <% else %>
+        <%= link_to "編輯",
+                    edit_user_post_path(current_user, @post),
+                    class: (@post.published == 1 ? "ui blue ribbon label" : "ui red ribbon label") %>
+      <% end %>
+      <span class="ui huge header">
+        <%= link_to(@post.title, post_path(@post)) %>
+        <%#= post.title %>
+        <div class="ui sub right aligned header"><%= l @post.post_date, format: :date %></div>
+      </span>
+      <%= @post.content.html_safe %>
+    </div>
   </div>
-</div>
